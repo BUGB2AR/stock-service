@@ -32,12 +32,13 @@ public class EstoqueService {
                     produto.getId(), produto.getQuantidadeEmEstoque(), produto.getLimiteMinimoEstoque());
 
             boolean estoqueBaixo = produto.getQuantidadeEmEstoque() < produto.getLimiteMinimoEstoque();
+            String mensagem = estoqueBaixo ? "Atenção: O estoque do produto está abaixo do limite mínimo." : "Limite ok";
 
-            return new EstoqueResponseDTO(produto, estoqueBaixo);
+            return new EstoqueResponseDTO(produto, estoqueBaixo,mensagem);
         } catch (WebClientResponseException e) {
             log.error("Erro na comunicação com o serviço de produtos. Status: {}, Mensagem: {}", e.getStatusCode(), e.getMessage());
             if (e.getStatusCode() == HttpStatus.NOT_FOUND) {
-                return new EstoqueResponseDTO(null, false);
+                return new EstoqueResponseDTO(null, false,"Ação não pode ser executada no serviço de estoque.");
             }
             throw e;
         }

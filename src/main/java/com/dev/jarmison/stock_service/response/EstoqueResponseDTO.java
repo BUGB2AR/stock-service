@@ -9,4 +9,5 @@ import lombok.Data;
 public class EstoqueResponseDTO {
     private EstoqueConsultaDto produto;
     private boolean estoqueBaixo;
+    private String mensagem;
 }
