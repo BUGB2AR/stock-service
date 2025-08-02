@@ -19,7 +19,7 @@
 
 <ul>
   <li>Java Development Kit (JDK) 17+</li>
-  <li>Maven</li>
+  <li>Maven e Junit</li>
   <li>Docker e Docker Compose</li>
 </ul>
 
@@ -57,6 +57,9 @@ mvn clean package</code></pre>
 
 <h3>Passo 3: Executar o Microsserviço</h3>
 <pre><code>mvn spring-boot:run</code></pre>
+
+<h3>Passo 4: Executar os testes com o Junit</h3>
+<pre><code>basta rodar na ide do Intellij o Runner de testes em Run tests Java</code></pre>
 
 <h2>Endpoints da API</h2>
 
